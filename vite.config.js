@@ -23,9 +23,13 @@ export default defineConfig({
     rollupOptions: {
       plugins: [
         sourceMapsPathChangerPlugin([
-          ["../../node_modules/", "node-modules:///"],
-          ["../../vite/", "node-modules:///vite/"],
-          ["../../", "source-maps:///"],
+            // Vite default ???
+          // ["../../node_modules/", "node-modules:///"],
+          // ["../../vite/", "node-modules:///vite/"],
+          // ["../../", "source-maps:///"],
+            // lib mode
+          ["../", "source-maps:///"],
+          ["../node_modules/", "node-modules:///"],
         ]),
         cssBundlePlugin({
           // callback: e => console.log(e), // for debug
