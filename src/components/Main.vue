@@ -6,7 +6,7 @@
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>
   </p>
 
-  <button @click="state.count++">count is: {{ state.count }}</button>
+  <button @click="state.count++">count is: {{state.count}}</button>
   <p>
     Edit34565656
     <code>components/HelloWorld.vue</code> to test hot module replacement.
@@ -14,13 +14,13 @@
 </template>
 
 <script setup>
-import { defineProps, reactive } from 'vue'
+import {defineProps, reactive} from "vue";
 
 defineProps({
   msg: String
-})
+});
 
-const state = reactive({ count: 0 })
+const state = reactive({count: 0});
 </script>
 
 <style scoped lang="sass">
