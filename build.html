@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="description"
+          content=""> <!-- TODO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            min-height: 100vh;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+
+<div id="app"></div>
+
+<script type="module">
+    const url = new URL(location.href);
+    const dev = JSON.parse(url.searchParams.get("dev"));
+    const isLocalHost = ["localhost", "127.0.0.1"].includes(url.hostname);
+
+    const _dev = dev !== null ? dev : isLocalHost;
+
+    Promise.resolve() //                                      vue@next
+        .then(_ => appendScript(`https://cdn.jsdelivr.net/npm/vue@3.0.11/dist/vue.runtime.global${_dev ? "" : ".prod"}.js`))
+        .then(_ => appendScript(`./dist/index.js`));
+
+    function appendScript(src) {
+        return new Promise(resolve => {
+            const script = document.createElement("script");
+            script.onload = resolve;
+            script.src = src;
+            document.querySelector("body").append(script);
+        });
+    }
+</script>
+
+</body>
+</html>
