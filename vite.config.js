@@ -29,10 +29,10 @@ export default defineConfig({
           ["../src/", "source-maps:///"],
           ["../", "source-maps:///"],
         ]),
-        // cssBundlePlugin({
-        //   overwriteBundle: "style.css",
-        //   importFromModule: true,
-        // }),
+        cssBundlePlugin({
+          overwriteBundle: "style.css",
+          importFromModule: true,
+        }),
       ],
       output: {
         format: "iife",
