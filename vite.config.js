@@ -26,20 +26,20 @@ export default defineConfig({
           // Use "../../" instead of "../" if resources are in "assets/" directory
           ["../node_modules/", "node-modules:///"],
           ["../vite/", "node-modules:///vite/"],
+          ["../src/", "source-maps:///"],
           ["../", "source-maps:///"],
         ]),
-        cssBundlePlugin({
-          // callback: e => console.log(e), // for debug
-          overwriteBundle: "style.css",
-          importFromModule: true,
-        }),
+        // cssBundlePlugin({
+        //   overwriteBundle: "style.css",
+        //   importFromModule: true,
+        // }),
       ],
       output: {
         format: "iife",
         globals: {
           "vue": "Vue"
         },
-        entryFileNames: `[name].js`,
+        entryFileNames: `[name].js`, // `[name].[format].js`
         chunkFileNames: `[name].js`,
         assetFileNames: `[name].[ext]`
       },

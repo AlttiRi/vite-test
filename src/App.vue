@@ -1,5 +1,5 @@
-<template lang="pug">
-Main
+<template>
+  <Main msg="Hello Vue 3 + Vite"/>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
 html, body {
   min-height: 100vh;
   margin: 0;
