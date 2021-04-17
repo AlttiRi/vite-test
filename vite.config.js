@@ -128,9 +128,10 @@ function cssBundlePlugin({callback, overwriteBundle, importFromModule, removeCod
       const indexOfSourceMap = css.indexOf("/*# sourceMappingURL");
       const to = indexOfSourceMap === -1 ? css.length : indexOfSourceMap;
       const from = css.charAt(0) === "\n" ? 1 : 0;
-      const result = "/* " + filename + " */\n" + css.substring(from, to);
-
-      results.push(result);
+      if (css.trim()) {
+        const result = "/* " + filename + " */\n" + css.substring(from, to);
+        results.push(result);
+      }
     }
     return results.join("\n");
   }
