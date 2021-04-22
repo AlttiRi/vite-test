@@ -12,8 +12,93 @@ body {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
+:root {
+  --textarea-wrapper-border: rgba(0, 0, 0, 0.6);
+}
+* {
+  box-sizing: border-box;
+}
 
 /* Main.vue */
-a[data-v-9d533ada] {
-  color: #42b983;
+.container[data-v-15fb5ab4] {
+  min-width: 280px;
+}
+.container .textarea-wrapper[data-v-15fb5ab4] {
+  min-height: 120px;
+  display: grid;
+}
+/* Row.vue */
+.row[data-v-5a1cb462] {
+  margin-top: 8px;
+}
+
+/* TagsLine.vue */
+[data-v-40946eac] .tag {
+  display: flex;
+}
+[data-v-40946eac] [contenteditable] {
+  border-bottom: 1px transparent inset;
+  border-top: 1px transparent inset;
+}
+[data-v-40946eac] .tag:not(.input-tag) {
+  padding: 2px 6px;
+  border: gray 1px solid;
+  border-radius: 2px;
+  margin: 1px;
+  background-image: linear-gradient(to top, rgba(0,0,0,0.1), rgba(255,255,255,0.55));
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+[data-v-40946eac] .input-tag {
+  border: 4px transparent solid;
+  padding-left: 2px;
+  margin-left: 2px;
+}
+[data-v-40946eac] .input-tag [contenteditable]:focus {
+  border-bottom: 1px grey solid;
+}
+[data-v-40946eac] [contenteditable] {
+  outline: 0 solid transparent;
+}
+.tags-line[data-v-40946eac] {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 480px;
+  min-width: 320px;
+}
+
+/* TextArea.vue */
+.text-area-component[data-v-67d90b29] {
+  border: solid 1px var(--textarea-wrapper-border);
+  box-sizing: border-box;
+  width: 100%;
+}
+.text-area-component textarea[data-v-67d90b29] {
+  width: 100%;
+  box-sizing: border-box;
+  height: calc(100% - 1px);
+  border: 0;
+  outline: none;
+  padding: 5px;
+  font-size: 17px;
+}
+.text-area-component textarea[data-v-67d90b29]:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+/* InputTag.vue */
+.tag[data-v-399a8083] {
+  flex-grow: 2;
+  min-width: 48px;
+}
+.content[data-v-399a8083] {
+  width: 100%;
+}
+[contenteditable=true][data-v-399a8083]:not(:focus):empty:before {
+  content: attr(data-placeholder);
+  pointer-events: none;
+  display: inline-block;
+  color: darkgray;
+}
+[contenteditable=true][data-v-399a8083]:focus:before {
+  content: "";
 }
