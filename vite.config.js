@@ -13,6 +13,7 @@ export default defineConfig({
       vue()
   ],
   build: {
+    target: "es2018",
     lib: {
       entry: path.resolve(__dirname, "src/index.js"),
       name: "libName",
@@ -37,13 +38,14 @@ export default defineConfig({
       output: {
         format: "iife",
         globals: {
-          "vue": "Vue"
+          "vue": "Vue",
+          "vuex": "Vuex"
         },
         entryFileNames: `[name].js`, // `[name].[format].js`
         chunkFileNames: `[name].js`,
         assetFileNames: `[name].[ext]`
       },
-      external: ["vue"]
+      external: ["vue", "vuex"]
     },
     terserOptions: {
       compress: {

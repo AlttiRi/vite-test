@@ -1,9 +1,10 @@
 <template>
-  <Main msg="Hello Vue 3 + Vite"/>
+  <Main/>
 </template>
 
 <script>
 import Main from "./components/Main.vue";
+
 export default {
   components: {Main}
 }
@@ -22,5 +23,11 @@ body {
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+:root {
+  --textarea-wrapper-border: rgba(0, 0, 0, 0.6);
+}
+* {
+  box-sizing: border-box;
 }
 </style>

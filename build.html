@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title><!-- TODO --></title>
     <meta name="description"
-          content=""> <!-- TODO -->
+          content="<!-- TODO -->">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/style.css">
+    <link rel="preload" href="./dist/index.js" as="script" crossorigin>
 </head>
 <body>
 
@@ -19,16 +20,18 @@
 
     const _dev = dev !== null ? dev : isLocalHost;
 
-    Promise.resolve() //                                      vue@3.0.11
-        .then(_ => appendScript(`https://cdn.jsdelivr.net/npm/vue@next/dist/vue.runtime.global${_dev ? "" : ".prod"}.js`))
-        .then(_ => appendScript(`./dist/index.js`));
+    !async function initScripts() {
+        await appendScript(`https://cdn.jsdelivr.net/npm/vue@next/dist/vue.runtime.global${_dev ? "" : ".prod"}.js`);
+        await appendScript(`https://cdn.jsdelivr.net/npm/vuex@next/dist/vuex.global${_dev ? "" : ".prod"}.js`);
+        await appendScript(`./dist/index.js`);
+    }();
 
     function appendScript(src) {
         return new Promise(resolve => {
             const script = document.createElement("script");
             script.onload = resolve;
             script.src = src;
-            document.querySelector("body").append(script);
+            document.body.append(script);
         });
     }
 </script>
