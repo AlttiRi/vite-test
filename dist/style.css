@@ -19,6 +19,24 @@ body {
   box-sizing: border-box;
 }
 
+/* InputTag.vue */
+.tag[data-v-399a8083] {
+  flex-grow: 2;
+  min-width: 48px;
+}
+.content[data-v-399a8083] {
+  width: 100%;
+}
+[contenteditable=true][data-v-399a8083]:not(:focus):empty:before {
+  content: attr(data-placeholder);
+  pointer-events: none;
+  display: inline-block;
+  color: darkgray;
+}
+[contenteditable=true][data-v-399a8083]:focus:before {
+  content: "";
+}
+
 /* Main.vue */
 .container[data-v-15fb5ab4] {
   min-width: 280px;
@@ -84,21 +102,4 @@ body {
 .text-area-component textarea[data-v-67d90b29]:focus::placeholder {
   opacity: 0;
   transition: opacity 0.25s ease;
-}
-/* InputTag.vue */
-.tag[data-v-399a8083] {
-  flex-grow: 2;
-  min-width: 48px;
-}
-.content[data-v-399a8083] {
-  width: 100%;
-}
-[contenteditable=true][data-v-399a8083]:not(:focus):empty:before {
-  content: attr(data-placeholder);
-  pointer-events: none;
-  display: inline-block;
-  color: darkgray;
-}
-[contenteditable=true][data-v-399a8083]:focus:before {
-  content: "";
 }
